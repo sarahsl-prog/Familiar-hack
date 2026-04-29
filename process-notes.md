@@ -31,7 +31,24 @@
 
 ## /prd
 
-**Status:** In progress.
+**Status:** Complete. PRD generated at `docs/prd.md`.
+
+**What was added vs scope doc:**
+- Precise response formats for both modes: `!ask` = summary + (title, author, filename); `!search` = (title, author, filename, excerpt)
+- Thread awareness scoped explicitly to `!ask` only — `!search` is always standalone. Sarah stated this clearly without prompting.
+- No-results fallback: auto-search Hugging Face first, then arXiv. External results include a link instead of filename.
+- Full long-response flow: bot warns + prompts `!messages` or `!file`, 2-minute timeout, `!continue` recovery command.
+
+**"What if" moments:**
+- Long message handling was a genuine "hadn't thought of that" moment — Sarah asked what the options were before deciding. Landed on a user-choice model (`!messages` / `!file`) consistent with her preference for explicit control.
+- Timeout behavior and `!continue` recovery came entirely from Sarah unprompted — strong systems-thinking instinct.
+- Thread context scope (only `!ask`, not `!search`) was stated clearly and immediately — no ambiguity.
+
+**Scope guard:** No scope creep surfaced. Category filtering stayed deferred to v2 as established in /scope. Four solid open questions flagged for /spec.
+
+**Deepening rounds:** 0. Sarah chose to proceed after mandatory questions — the answers were specific enough that further deepening wasn't needed.
+
+**Active shaping:** Very active. Sarah drove the long-response design (asked about options, chose the user-choice model), defined the timeout/recovery behavior completely on her own, and kept scope tight without any prompting. Consistent pattern: she prefers explicit user control over "clever" automation.
 
 ## /onboard
 
